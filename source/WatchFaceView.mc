@@ -166,7 +166,7 @@ class WatchFaceView extends WatchUi.WatchFace {
     // -- Bezel: a faint base ring (continuous texture, like the mockup's
     // soft gradient) plus 120 minor ticks every 3 deg, majors every 30 deg.
     private function drawBezel(dc as Dc, cx as Number, cy as Number) as Void {
-        var rOuter = 220;
+        var rOuter = 233;
         var minorLen = 5;
         var majorLen = 11;
 
@@ -193,7 +193,7 @@ class WatchFaceView extends WatchUi.WatchFace {
 
     // -- Compass rose N/E/S/O labels: static, pre-rendered into _bezelBuffer --
     private function drawCardinalLetters(dc as Dc, cx as Number, cy as Number) as Void {
-        var r = 195;
+        var r = 214;
         var cardinalFont = boldFont(22);
 
         dc.setColor(COLOR_ACCENT, Graphics.COLOR_TRANSPARENT);
@@ -212,8 +212,8 @@ class WatchFaceView extends WatchUi.WatchFace {
             return;
         }
 
-        var rTip = 225;
-        var rBase = 215;
+        var rTip = 233;
+        var rBase = 224;
         var halfWidthRad = Math.toRadians(1.8);
 
         var tipX = cx + rTip * Math.sin(headingRad);
@@ -247,7 +247,7 @@ class WatchFaceView extends WatchUi.WatchFace {
         }
         var text = Lang.format("$1$:$2$", [hour.format("%02d"), clockTime.min.format("%02d")]);
         dc.setColor(color, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(cx, cy, boldFont(112), text, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(cx, cy, boldFont(96), text, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 
     // Heading label is the one live piece here (redrawn from the current
