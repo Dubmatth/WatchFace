@@ -1,0 +1,27 @@
+<iq:manifest xmlns:iq="http://www.garmin.com/xml/connectiq" version="3">
+  <iq:application
+      entry="WatchFaceApp"
+      id="50343c2c-f617-4502-afee-4df9513ec4f1"
+      launcherIcon="@Drawables.LauncherIcon"
+      minSdkVersion="4.1.0"
+      name="@Strings.AppName"
+      type="watchface"
+      version="1.0.0">
+    <!-- TODO: verify these product ids against the SDK's device list once
+         installed (VS Code: Monkey C > Edit Application) - fenix9pro* is my
+         best guess from Garmin's naming convention, not yet confirmed. -->
+    <iq:products>
+      <iq:product id="fenix9pro43mm"/>
+      <iq:product id="fenix9pro47mm"/>
+      <iq:product id="fenix9pro51mm"/>
+    </iq:products>
+    <iq:permissions>
+      <iq:uses-permission id="Positioning"/>
+    </iq:permissions>
+    <iq:languages>
+      <iq:language>fre</iq:language>
+      <iq:language>eng</iq:language>
+    </iq:languages>
+    <iq:barrels/>
+  </iq:application>
+</iq:manifest>

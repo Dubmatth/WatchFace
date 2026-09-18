@@ -1,0 +1,19 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 560, "h": 560, "title": "Cadran final", "page": "page-1" },
+    { "file": "VariantTicks.dc.html", "x": 0, "y": 0, "w": 560, "h": 560, "title": "Lunette graduée (fusionnée)", "page": "page-2" },
+    { "file": "VariantAsym.dc.html", "x": 640, "y": 0, "w": 560, "h": 560, "title": "Répartition asymétrique (écartée)", "page": "page-2" },
+    { "file": "VariantCompass.dc.html", "x": 1280, "y": 0, "w": 560, "h": 560, "title": "Rose des vents (fusionnée)", "page": "page-2" },
+    { "file": "Minimaliste.dc.html", "x": 1920, "y": 0, "w": 560, "h": 560, "title": "Minimaliste épuré (écartée)", "page": "page-2" },
+    { "file": "DataDense.dc.html", "x": 2560, "y": 0, "w": 560, "h": 560, "title": "Technique / data-dense (écartée)", "page": "page-2" }
+  ],
+  "annotations": [
+    { "id": "note-final", "x": 0, "y": -110, "w": 560, "text": "Cadran final — base tactique + lunette graduée + rose des vents avec flèche de cap", "page": "page-1" },
+    { "id": "note-explorations", "x": 0, "y": -110, "w": 2560, "text": "Historique des pistes explorées — les éléments retenus ont été fusionnés dans le cadran final (page 1)", "page": "page-2" }
+  ],
+  "pages": [
+    { "id": "page-1", "name": "Cadran final" },
+    { "id": "page-2", "name": "Explorations" }
+  ],
+  "launch": { "view": "canvas", "page": "page-1" }
+}

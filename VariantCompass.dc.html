@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: transparent; }
+    a { color: #d97a3f; }
+    a:hover { color: #b5602c; }
+    .vco-wrap { width: 560px; height: 560px; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, #1a1a1a 0%, #0b0b0b 100%); }
+    .vco-case {
+      width: 500px; height: 500px; border-radius: 50%;
+      background: linear-gradient(150deg, #5c584f 0%, #302d27 45%, #17150f 100%);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.55), inset 0 0 0 2px rgba(255,255,255,0.04);
+      display: flex; align-items: center; justify-content: center; padding: 17px;
+    }
+    .vco-screen {
+      width: 466px; height: 466px; border-radius: 50%; position: relative; overflow: hidden;
+      background: oklch(14% 0.01 60);
+      font-family: "Oswald", system-ui, sans-serif;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: oklch(97% 0.01 90);
+    }
+    .vco-ticks {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: repeating-conic-gradient(from 0deg, oklch(45% 0.03 60) 0deg 1deg, transparent 1deg 11.25deg);
+      -webkit-mask: radial-gradient(circle, transparent 0 210px, black 211px 218px, transparent 219px 233px);
+      mask: radial-gradient(circle, transparent 0 210px, black 211px 218px, transparent 219px 233px);
+    }
+    .vco-cardinal {
+      position: absolute; inset: 0; font-size: 12px; font-weight: 600; letter-spacing: 1px; color: oklch(70% 0.01 90);
+    }
+    .vco-cardinal span { position: absolute; }
+    .vco-n { top: 22px; left: 50%; transform: translateX(-50%); color: oklch(75% 0.13 48); }
+    .vco-e { top: 50%; right: 18px; transform: translateY(-50%); }
+    .vco-s { bottom: 22px; left: 50%; transform: translateX(-50%); }
+    .vco-o { top: 50%; left: 18px; transform: translateY(-50%); }
+    .vco-heading {
+      position: absolute; inset: 0; transform: rotate(42deg);
+    }
+    .vco-heading .marker { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); }
+    .vco-date {
+      font-size: 12px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
+      color: oklch(60% 0.01 90); margin-bottom: 6px;
+    }
+    .vco-heading-val { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: oklch(75% 0.13 48); margin-bottom: 4px; }
+    .vco-time {
+      font-size: 88px; font-weight: 700; letter-spacing: -2px; line-height: 1;
+      color: oklch(97% 0.01 90);
+    }
+    .vco-divider { width: 70px; height: 2px; background: oklch(68% 0.16 48); opacity: 0.7; margin: 12px 0; border-radius: 2px; }
+    .vco-row { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; color: oklch(82% 0.01 90); }
+    .vco-row + .vco-row { margin-top: 6px; }
+    .vco-sep { color: oklch(45% 0.01 90); }
+    .vco-icon { width: 14px; height: 14px; }
+  </style>
+</helmet>
+<div class="vco-wrap">
+  <div class="vco-case">
+    <div class="vco-screen">
+
+      <div class="vco-ticks"></div>
+      <div class="vco-cardinal">
+        <span class="vco-n">N</span>
+        <span class="vco-e">E</span>
+        <span class="vco-s">S</span>
+        <span class="vco-o">O</span>
+      </div>
+      <div class="vco-heading">
+        <svg class="marker" width="14" height="12" viewBox="0 0 14 12">
+          <path d="M7 0L14 12H0Z" fill="oklch(75% 0.16 48)"></path>
+        </svg>
+      </div>
+
+      <div class="vco-date">MAR 17 SEPT</div>
+      <div class="vco-heading-val">042° NE</div>
+      <div class="vco-time">14:32</div>
+      <div class="vco-divider"></div>
+
+      <div class="vco-row">
+        <svg class="vco-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(62% 0.09 125)" stroke-width="1.8"><path d="M3 19h18L14 6l-3.5 6L9 9l-6 10z"></path></svg>
+        <span>1240m</span><span class="vco-sep">/</span><span>▲86m</span>
+      </div>
+      <div class="vco-row">
+        <svg class="vco-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(80% 0.01 90)" stroke-width="1.8"><path d="M12 3v2M12 19v2M4 12H2M12 3a1 1 0 0 0-1 1v5.5L8 14l4 2 4-2-3-4.5V4a1 1 0 0 0-1-1z"></path></svg>
+        <span>14°C</span><span class="vco-sep">·</span>
+        <svg class="vco-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(68% 0.16 48)" stroke-width="1.8"><rect x="3" y="8" width="16" height="8" rx="1.5"></rect><rect x="20" y="10.5" width="1.5" height="3" fill="oklch(68% 0.16 48)" stroke="none"></rect><rect x="4.5" y="9.5" width="9.5" height="5" fill="oklch(68% 0.16 48)" stroke="none"></rect></svg>
+        <span>68%</span>
+      </div>
+      <div class="vco-row">
+        <svg class="vco-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(62% 0.09 125)" stroke-width="1.8"><circle cx="12" cy="14" r="4.5"></circle><path d="M12 4v2M4.5 11h2M17.5 11h2M6.5 7l1.4 1.4M15.6 8.4L17 7"></path></svg>
+        <span>06:42</span><span class="vco-sep">–</span><span>19:58</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

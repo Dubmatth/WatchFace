@@ -1,0 +1,13 @@
+bin/
+gen/
+*.prg
+*.iq
+*.debug.xml
+.vscode/launch.json
+developer_key.pem
+developer_key.der
+.DS_Store
+
+# Regenerated from canvas.json + *.dc.html via the design skill's
+# seed-canvas.mjs helper - not hand-edited, not worth tracking.
+fenix9pro-watchface-directions.html

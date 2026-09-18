@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: transparent; }
+    a { color: #e8e8e8; }
+    a:hover { color: #ffffff; }
+    .min-wrap { width: 560px; height: 560px; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, #161616 0%, #0a0a0a 100%); }
+    .min-case {
+      width: 500px; height: 500px; border-radius: 50%;
+      background: linear-gradient(150deg, #4c4c4c 0%, #232323 45%, #101010 100%);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.55), inset 0 0 0 2px rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: center; padding: 17px;
+    }
+    .min-screen {
+      width: 466px; height: 466px; border-radius: 50%; position: relative; overflow: hidden;
+      background: oklch(10% 0 0);
+      font-family: "Jost", system-ui, sans-serif;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: oklch(96% 0 0);
+    }
+    .min-date {
+      position: absolute; top: 92px; left: 0; right: 0; text-align: center;
+      font-size: 12px; font-weight: 300; letter-spacing: 5px; text-transform: uppercase;
+      color: oklch(55% 0 0);
+    }
+    .min-time {
+      font-size: 118px; font-weight: 200; letter-spacing: -1px; line-height: 1;
+      color: oklch(97% 0 0);
+    }
+    .min-line { width: 36px; height: 1px; background: oklch(97% 0 0); opacity: 0.35; margin: 22px 0; }
+    .min-row { display: flex; align-items: baseline; gap: 12px; font-size: 12px; font-weight: 300; letter-spacing: 2.5px; color: oklch(58% 0 0); }
+    .min-row + .min-row { margin-top: 10px; }
+    .min-row .accent { color: oklch(90% 0 0); font-weight: 400; }
+    .min-dot { color: oklch(40% 0 0); }
+  </style>
+</helmet>
+<div class="min-wrap">
+  <div class="min-case">
+    <div class="min-screen">
+
+      <div class="min-date">17 SEPTEMBRE</div>
+
+      <div class="min-time">14:32</div>
+
+      <div class="min-line"></div>
+
+      <div class="min-row">
+        <span><span class="accent">1240</span>M</span>
+        <span class="min-dot">·</span>
+        <span><span class="accent">042</span>°</span>
+        <span class="min-dot">·</span>
+        <span><span class="accent">14</span>°C</span>
+      </div>
+      <div class="min-row">
+        <span>06:42 <span class="min-dot">–</span> 19:58</span>
+        <span class="min-dot">·</span>
+        <span><span class="accent">68</span>%</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: transparent; }
+    a { color: #d97a3f; }
+    a:hover { color: #b5602c; }
+    .vtk-wrap { width: 560px; height: 560px; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, #1a1a1a 0%, #0b0b0b 100%); }
+    .vtk-case {
+      width: 500px; height: 500px; border-radius: 50%;
+      background: linear-gradient(150deg, #5c584f 0%, #302d27 45%, #17150f 100%);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.55), inset 0 0 0 2px rgba(255,255,255,0.04);
+      display: flex; align-items: center; justify-content: center; padding: 17px;
+    }
+    .vtk-screen {
+      width: 466px; height: 466px; border-radius: 50%; position: relative; overflow: hidden;
+      background: oklch(14% 0.01 60);
+      font-family: "Oswald", system-ui, sans-serif;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: oklch(97% 0.01 90);
+    }
+    .vtk-ticks-minor {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: repeating-conic-gradient(from 0deg, oklch(45% 0.03 60) 0deg 1deg, transparent 1deg 6deg);
+      -webkit-mask: radial-gradient(circle, transparent 0 213px, black 214px 220px, transparent 221px 233px);
+      mask: radial-gradient(circle, transparent 0 213px, black 214px 220px, transparent 221px 233px);
+    }
+    .vtk-ticks-major {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: repeating-conic-gradient(from 0deg, oklch(75% 0.13 48) 0deg 2deg, transparent 2deg 30deg);
+      -webkit-mask: radial-gradient(circle, transparent 0 212px, black 213px 221px, transparent 222px 233px);
+      mask: radial-gradient(circle, transparent 0 212px, black 213px 221px, transparent 222px 233px);
+    }
+    .vtk-date {
+      position: absolute; top: 88px; left: 0; right: 0; text-align: center;
+      font-size: 13px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase;
+      color: oklch(65% 0.01 90);
+    }
+    .vtk-date b { color: oklch(68% 0.16 48); font-weight: 600; }
+    .vtk-time {
+      font-size: 100px; font-weight: 700; letter-spacing: -2px; line-height: 1;
+      color: oklch(97% 0.01 90);
+    }
+    .vtk-sub { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+    .vtk-sub-item { display: flex; align-items: center; gap: 5px; font-size: 15px; font-weight: 500; color: oklch(80% 0.01 90); }
+    .vtk-sub-sep { width: 3px; height: 3px; border-radius: 50%; background: oklch(50% 0.01 90); }
+    .vtk-divider { width: 90px; height: 2px; background: oklch(68% 0.16 48); opacity: 0.7; margin: 16px 0; border-radius: 2px; }
+    .vtk-row { position: absolute; bottom: 70px; left: 0; right: 0; display: flex; justify-content: center; gap: 22px; }
+    .vtk-chip { display: flex; flex-direction: column; align-items: center; gap: 3px; width: 88px; }
+    .vtk-chip .lbl { font-size: 10px; font-weight: 600; letter-spacing: 2px; color: oklch(62% 0.09 125); text-transform: uppercase; }
+    .vtk-chip .val { font-size: 15px; font-weight: 600; color: oklch(94% 0.01 90); letter-spacing: 0.5px; }
+    .vtk-chip .sub { font-size: 10px; font-weight: 400; color: oklch(60% 0.01 90); }
+    .vtk-icon { width: 18px; height: 18px; }
+  </style>
+</helmet>
+<div class="vtk-wrap">
+  <div class="vtk-case">
+    <div class="vtk-screen">
+
+      <div class="vtk-ticks-minor"></div>
+      <div class="vtk-ticks-major"></div>
+
+      <div class="vtk-date">MAR <b>·</b> 17 SEPT</div>
+
+      <div class="vtk-time">14:32</div>
+
+      <div class="vtk-sub">
+        <div class="vtk-sub-item">
+          <svg class="vtk-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(68% 0.16 48)" stroke-width="1.8">
+            <rect x="3" y="8" width="16" height="8" rx="1.5"></rect>
+            <rect x="20" y="10.5" width="1.5" height="3" fill="oklch(68% 0.16 48)" stroke="none"></rect>
+            <rect x="4.5" y="9.5" width="9.5" height="5" fill="oklch(68% 0.16 48)" stroke="none"></rect>
+          </svg>
+          <span>68%</span>
+        </div>
+        <div class="vtk-sub-sep"></div>
+        <div class="vtk-sub-item">
+          <svg class="vtk-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(80% 0.01 90)" stroke-width="1.8">
+            <path d="M12 3v2M12 19v2M4 12H2M12 3a1 1 0 0 0-1 1v5.5L8 14l4 2 4-2-3-4.5V4a1 1 0 0 0-1-1z"></path>
+          </svg>
+          <span>14°C</span>
+        </div>
+      </div>
+
+      <div class="vtk-divider"></div>
+
+      <div class="vtk-row">
+        <div class="vtk-chip">
+          <svg class="vtk-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(62% 0.09 125)" stroke-width="1.8">
+            <path d="M3 19h18L14 6l-3.5 6L9 9l-6 10z"></path>
+          </svg>
+          <div class="val">1240m</div>
+          <div class="sub">▲ 86m</div>
+        </div>
+        <div class="vtk-chip">
+          <svg class="vtk-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(68% 0.16 48)" stroke-width="1.8" style="transform: rotate(42deg);">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 12 L15.5 5.5 L12 8 L8.5 5.5 Z" fill="oklch(68% 0.16 48)" stroke="none"></path>
+          </svg>
+          <div class="val">042° NE</div>
+          <div class="sub">cap</div>
+        </div>
+        <div class="vtk-chip">
+          <svg class="vtk-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(62% 0.09 125)" stroke-width="1.8">
+            <circle cx="12" cy="14" r="4.5"></circle>
+            <path d="M12 4v2M4.5 11h2M17.5 11h2M6.5 7l1.4 1.4M15.6 8.4L17 7"></path>
+          </svg>
+          <div class="val">06:42</div>
+          <div class="sub">19:58</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

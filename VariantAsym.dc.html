@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: transparent; }
+    a { color: #d97a3f; }
+    a:hover { color: #b5602c; }
+    .vas-wrap { width: 560px; height: 560px; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, #1a1a1a 0%, #0b0b0b 100%); }
+    .vas-case {
+      width: 500px; height: 500px; border-radius: 50%;
+      background: linear-gradient(150deg, #5c584f 0%, #302d27 45%, #17150f 100%);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.55), inset 0 0 0 2px rgba(255,255,255,0.04);
+      display: flex; align-items: center; justify-content: center; padding: 17px;
+    }
+    .vas-screen {
+      width: 466px; height: 466px; border-radius: 50%; position: relative; overflow: hidden;
+      background: oklch(14% 0.01 60);
+      font-family: "Oswald", system-ui, sans-serif;
+      color: oklch(97% 0.01 90);
+    }
+    .vas-bracket { position: absolute; width: 16px; height: 16px; }
+    .vas-bracket svg { width: 100%; height: 100%; }
+    .vas-date {
+      position: absolute; top: 78px; left: 0; right: 0; text-align: center;
+      font-size: 12px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase;
+      color: oklch(65% 0.01 90);
+    }
+    .vas-date b { color: oklch(68% 0.16 48); font-weight: 600; }
+    .vas-battery {
+      position: absolute; top: 106px; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 5px;
+      font-size: 12px; font-weight: 500; color: oklch(68% 0.16 48);
+    }
+    .vas-time {
+      position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%);
+      text-align: center; font-size: 80px; font-weight: 700; letter-spacing: -1px; line-height: 1; white-space: nowrap;
+      color: oklch(97% 0.01 90);
+    }
+    .vas-side { position: absolute; top: 190px; display: flex; flex-direction: column; gap: 22px; width: 94px; }
+    .vas-side.left { left: 62px; align-items: flex-start; }
+    .vas-side.right { right: 62px; align-items: flex-end; }
+    .vas-item { display: flex; flex-direction: column; gap: 2px; }
+    .vas-side.left .vas-item { align-items: flex-start; }
+    .vas-side.right .vas-item { align-items: flex-end; }
+    .vas-item .lbl { display: flex; align-items: center; gap: 4px; font-size: 9px; font-weight: 600; letter-spacing: 1.5px; color: oklch(62% 0.09 125); text-transform: uppercase; }
+    .vas-item .val { font-size: 16px; font-weight: 600; color: oklch(94% 0.01 90); }
+    .vas-item .sub { font-size: 10px; color: oklch(58% 0.01 90); }
+    .vas-icon { width: 14px; height: 14px; }
+  </style>
+</helmet>
+<div class="vas-wrap">
+  <div class="vas-case">
+    <div class="vas-screen">
+
+      <div class="vas-bracket" style="top: 84px; left: 84px;">
+        <svg viewBox="0 0 16 16" fill="none" stroke="oklch(68% 0.16 48)" stroke-width="2"><path d="M14 1H1v13"></path></svg>
+      </div>
+      <div class="vas-bracket" style="top: 84px; right: 84px;">
+        <svg viewBox="0 0 16 16" fill="none" stroke="oklch(68% 0.16 48)" stroke-width="2"><path d="M2 1h13v13"></path></svg>
+      </div>
+      <div class="vas-bracket" style="bottom: 84px; left: 84px;">
+        <svg viewBox="0 0 16 16" fill="none" stroke="oklch(68% 0.16 48)" stroke-width="2"><path d="M14 15H1V2"></path></svg>
+      </div>
+      <div class="vas-bracket" style="bottom: 84px; right: 84px;">
+        <svg viewBox="0 0 16 16" fill="none" stroke="oklch(68% 0.16 48)" stroke-width="2"><path d="M2 15h13V2"></path></svg>
+      </div>
+
+      <div class="vas-date">MAR <b>·</b> 17 SEPT</div>
+      <div class="vas-battery">
+        <svg class="vas-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(68% 0.16 48)" stroke-width="2">
+          <rect x="3" y="8" width="16" height="8" rx="1.5"></rect>
+          <rect x="20" y="10.5" width="1.5" height="3" fill="oklch(68% 0.16 48)" stroke="none"></rect>
+          <rect x="4.5" y="9.5" width="9.5" height="5" fill="oklch(68% 0.16 48)" stroke="none"></rect>
+        </svg>
+        68%
+      </div>
+
+      <div class="vas-time">14:32</div>
+
+      <div class="vas-side left">
+        <div class="vas-item">
+          <div class="lbl">
+            <svg class="vas-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(62% 0.09 125)" stroke-width="1.8"><path d="M3 19h18L14 6l-3.5 6L9 9l-6 10z"></path></svg>
+            ALT
+          </div>
+          <div class="val">1240m</div>
+          <div class="sub">▲ 86m</div>
+        </div>
+        <div class="vas-item">
+          <div class="lbl">
+            <svg class="vas-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(62% 0.09 125)" stroke-width="1.8"><path d="M12 3v2M12 19v2M4 12H2M12 3a1 1 0 0 0-1 1v5.5L8 14l4 2 4-2-3-4.5V4a1 1 0 0 0-1-1z"></path></svg>
+            TEMP
+          </div>
+          <div class="val">14°C</div>
+        </div>
+      </div>
+
+      <div class="vas-side right">
+        <div class="vas-item">
+          <div class="lbl">
+            CAP
+            <svg class="vas-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(68% 0.16 48)" stroke-width="1.8" style="transform: rotate(42deg);"><circle cx="12" cy="12" r="9"></circle><path d="M12 12 L15.5 5.5 L12 8 L8.5 5.5 Z" fill="oklch(68% 0.16 48)" stroke="none"></path></svg>
+          </div>
+          <div class="val">042° NE</div>
+        </div>
+        <div class="vas-item">
+          <div class="lbl">
+            SOLEIL
+            <svg class="vas-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(62% 0.09 125)" stroke-width="1.8"><circle cx="12" cy="14" r="4.5"></circle><path d="M12 4v2M4.5 11h2M17.5 11h2M6.5 7l1.4 1.4M15.6 8.4L17 7"></path></svg>
+          </div>
+          <div class="val">06:42</div>
+          <div class="sub">19:58</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

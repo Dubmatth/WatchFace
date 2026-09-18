@@ -1,0 +1,4 @@
+{
+    "monkeyC.javaPath": "/Applications/Android Studio.app/Contents/jbr/Contents/Home/bin/java",
+    "monkeyC.developerKeyPath": "${workspaceFolder}/developer_key.der"
+}

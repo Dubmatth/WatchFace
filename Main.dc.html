@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: transparent; }
+    a { color: #d97a3f; }
+    a:hover { color: #b5602c; }
+    .tac-wrap { width: 560px; height: 560px; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at center, #1a1a1a 0%, #0b0b0b 100%); }
+    .tac-case {
+      width: 500px; height: 500px; border-radius: 50%;
+      background: linear-gradient(150deg, #5c584f 0%, #302d27 45%, #17150f 100%);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.55), inset 0 0 0 2px rgba(255,255,255,0.04);
+      display: flex; align-items: center; justify-content: center; padding: 17px;
+    }
+    .tac-screen {
+      width: 466px; height: 466px; border-radius: 50%; position: relative; overflow: hidden;
+      background: oklch(14% 0.01 60);
+      font-family: "Oswald", system-ui, sans-serif;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: oklch(97% 0.01 90);
+    }
+
+    /* graduated bezel ring */
+    .tac-ticks-minor {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: repeating-conic-gradient(from 0deg, oklch(45% 0.03 60) 0deg 1deg, transparent 1deg 6deg);
+      -webkit-mask: radial-gradient(circle, transparent 0 213px, black 214px 220px, transparent 221px 233px);
+      mask: radial-gradient(circle, transparent 0 213px, black 214px 220px, transparent 221px 233px);
+    }
+    .tac-ticks-major {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: repeating-conic-gradient(from 0deg, oklch(75% 0.13 48) 0deg 2deg, transparent 2deg 30deg);
+      -webkit-mask: radial-gradient(circle, transparent 0 212px, black 213px 221px, transparent 222px 233px);
+      mask: radial-gradient(circle, transparent 0 212px, black 213px 221px, transparent 222px 233px);
+    }
+
+    /* compass rose: cardinal letters + heading arrow, sitting just inside the bezel */
+    .tac-cardinal { position: absolute; inset: 0; font-size: 11px; font-weight: 600; letter-spacing: 1px; color: oklch(62% 0.01 90); }
+    .tac-cardinal span { position: absolute; }
+    .tac-n { top: 38px; left: 50%; transform: translateX(-50%); color: oklch(75% 0.13 48); }
+    .tac-e { top: 50%; right: 38px; transform: translateY(-50%); }
+    .tac-s { bottom: 38px; left: 50%; transform: translateX(-50%); }
+    .tac-o { top: 50%; left: 38px; transform: translateY(-50%); }
+    .tac-heading { position: absolute; inset: 0; transform: rotate(42deg); }
+    .tac-heading .marker { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); }
+
+    .tac-date {
+      position: absolute; top: 84px; left: 0; right: 0; text-align: center;
+      font-size: 12px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase;
+      color: oklch(65% 0.01 90);
+    }
+    .tac-date b { color: oklch(68% 0.16 48); font-weight: 600; }
+    .tac-time {
+      font-size: 96px; font-weight: 700; letter-spacing: -2px; line-height: 1;
+      color: oklch(97% 0.01 90);
+    }
+    .tac-sub { display: flex; align-items: center; gap: 9px; margin-top: 10px; }
+    .tac-sub-item { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500; color: oklch(80% 0.01 90); }
+    .tac-sub-item.heading { color: oklch(75% 0.13 48); font-weight: 600; }
+    .tac-sub-sep { width: 3px; height: 3px; border-radius: 50%; background: oklch(50% 0.01 90); }
+    .tac-divider { width: 90px; height: 2px; background: oklch(68% 0.16 48); opacity: 0.7; margin: 14px 0; border-radius: 2px; }
+    .tac-row { position: absolute; bottom: 78px; left: 0; right: 0; display: flex; justify-content: center; gap: 34px; }
+    .tac-chip { display: flex; flex-direction: column; align-items: center; gap: 3px; width: 96px; }
+    .tac-chip .val { font-size: 13px; font-weight: 600; color: oklch(94% 0.01 90); letter-spacing: 0.5px; }
+    .tac-chip .sub { font-size: 10px; font-weight: 400; color: oklch(60% 0.01 90); }
+    .tac-icon { width: 14px; height: 14px; }
+  </style>
+</helmet>
+<div class="tac-wrap">
+  <div class="tac-case">
+    <div class="tac-screen">
+
+      <div class="tac-ticks-minor"></div>
+      <div class="tac-ticks-major"></div>
+
+      <div class="tac-cardinal">
+        <span class="tac-n">N</span>
+        <span class="tac-e">E</span>
+        <span class="tac-s">S</span>
+        <span class="tac-o">O</span>
+      </div>
+      <div class="tac-heading">
+        <svg class="marker" width="13" height="11" viewBox="0 0 14 12">
+          <path d="M7 0L14 12H0Z" fill="oklch(75% 0.16 48)"></path>
+        </svg>
+      </div>
+
+      <div class="tac-date">MAR <b>·</b> 17 SEPT</div>
+
+      <div class="tac-time">14:32</div>
+
+      <div class="tac-sub">
+        <div class="tac-sub-item heading">042° NE</div>
+        <div class="tac-sub-sep"></div>
+        <div class="tac-sub-item">
+          <svg class="tac-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(68% 0.16 48)" stroke-width="1.8">
+            <rect x="3" y="8" width="16" height="8" rx="1.5"></rect>
+            <rect x="20" y="10.5" width="1.5" height="3" fill="oklch(68% 0.16 48)" stroke="none"></rect>
+            <rect x="4.5" y="9.5" width="9.5" height="5" fill="oklch(68% 0.16 48)" stroke="none"></rect>
+          </svg>
+          <span>68%</span>
+        </div>
+        <div class="tac-sub-sep"></div>
+        <div class="tac-sub-item">
+          <svg class="tac-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(80% 0.01 90)" stroke-width="1.8">
+            <path d="M12 3v2M12 19v2M4 12H2M12 3a1 1 0 0 0-1 1v5.5L8 14l4 2 4-2-3-4.5V4a1 1 0 0 0-1-1z"></path>
+          </svg>
+          <span>14°C</span>
+        </div>
+      </div>
+
+      <div class="tac-divider"></div>
+
+      <div class="tac-row">
+        <div class="tac-chip">
+          <svg class="tac-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(62% 0.09 125)" stroke-width="1.8">
+            <path d="M3 19h18L14 6l-3.5 6L9 9l-6 10z"></path>
+          </svg>
+          <div class="val">1240m</div>
+          <div class="sub">▲ 86m</div>
+        </div>
+        <div class="tac-chip">
+          <svg class="tac-icon" viewBox="0 0 24 24" fill="none" stroke="oklch(62% 0.09 125)" stroke-width="1.8">
+            <circle cx="12" cy="14" r="4.5"></circle>
+            <path d="M12 4v2M4.5 11h2M17.5 11h2M6.5 7l1.4 1.4M15.6 8.4L17 7"></path>
+          </svg>
+          <div class="val">06:42</div>
+          <div class="sub">19:58</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
